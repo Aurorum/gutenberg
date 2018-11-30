@@ -3,6 +3,7 @@
 ### New Feature
 
 - Added support for `check-engines` script ([#12721](https://github.com/WordPress/gutenberg/pull/12721))
+- Added support for `test-e2e` script ([#12437](https://github.com/WordPress/gutenberg/pull/12437)).
 
 ## 2.4.4 (2018-11-20)
 
