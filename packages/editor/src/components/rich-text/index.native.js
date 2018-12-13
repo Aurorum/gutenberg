@@ -201,9 +201,7 @@ export class RichText extends Component {
 	}
 
 	onSelectionChange( start, end, text ) {
-		const realStart = Math.min( start, end );
-		const realEnd = Math.max( start, end );
-		this.setState( { start: realStart, end: realEnd, text } );
+		this.setState( { start, end, text } );
 	}
 
 	isEmpty() {
@@ -233,7 +231,7 @@ export class RichText extends Component {
 		return value;
 	}
 
-	shouldComponentUpdate( nextProps ) {
+	shouldComponentUpdate( nextProps, nextState ) {
 		if ( nextProps.tagName !== this.props.tagName || nextProps.isSelected !== this.props.isSelected ) {
 			this.lastEventCount = undefined;
 			this.lastContent = undefined;
@@ -249,6 +247,10 @@ export class RichText extends Component {
 			( typeof this.lastContent !== 'undefined' ) &&
 			nextProps.value !== this.lastContent ) {
 			this.lastEventCount = undefined; // force a refresh on the native side
+		}
+
+		if ( nextState.start !== this.state.start || nextState.end !== this.state.end ) {
+			return false;
 		}
 
 		return true;
