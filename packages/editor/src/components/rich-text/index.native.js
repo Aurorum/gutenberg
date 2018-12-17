@@ -200,8 +200,8 @@ export class RichText extends Component {
 		}
 	}
 
-	onSelectionChange( start, end, text ) {
-		this.setState( { start, end, text } );
+	onSelectionChange( start, end ) {
+		this.setState( { start, end } );
 	}
 
 	isEmpty() {
@@ -213,12 +213,14 @@ export class RichText extends Component {
 		if ( Array.isArray( value ) ) {
 			return create( {
 				html: children.toHTML( value ),
+				multilineTag: this.multilineTag,
 			} );
 		}
 
 		if ( this.props.format === 'string' ) {
 			return create( {
 				html: value,
+				multilineTag: this.multilineTag,
 			} );
 		}
 
