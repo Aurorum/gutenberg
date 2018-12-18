@@ -14,7 +14,7 @@ import { Component } from '@wordpress/element';
 import styles from './style.scss';
 
 export default class PlainText extends Component {
-	isIOS: boolean = Platform.OS === 'ios';
+	isIOS = Platform.OS === 'ios';
 
 	componentDidMount() {
 		// if isSelected is true, we should request the focus on this TextInput

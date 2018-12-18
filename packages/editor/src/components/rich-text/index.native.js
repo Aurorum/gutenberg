@@ -3,10 +3,6 @@
  */
 import RCTAztecView from 'react-native-aztec';
 import { View, Platform } from 'react-native';
-import {
-	forEach,
-	merge,
-} from 'lodash';
 
 /**
  * WordPress dependencies
